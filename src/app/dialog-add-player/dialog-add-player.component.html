@@ -1,0 +1,16 @@
+<div>
+  <p>
+    <mat-form-field>
+      <mat-label>Enter name of Player</mat-label>
+      <input matInput [(ngModel)]="name" />
+    </mat-form-field>
+  </p>
+  <p>
+    <button mat-raised-button color="accent" (click)="openTest()">Enter</button>
+  </p>
+  @if (animal()) {
+    <li>
+      You chose: <em>{{animal()}}</em>
+    </li>
+  }
+</div>

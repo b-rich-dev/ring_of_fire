@@ -1,0 +1,29 @@
+@for (player of game.players; track $index) {
+<app-player [name]="player" [style.top.px]="100 + ($index * 100)" class="player-position"></app-player>
+}
+<div class="field">
+    <div class="card-stack">
+        <!-- Card Stack -->
+        @for (c of [0, 1, 2, 3]; track $index) {
+        <img [style.left.px]="$index * 4" src="assets/img/cards/card_cover.png" alt="Cover Card">
+        }
+        <!-- Top Card -->
+        <img (click)="takeCard()" class="top-card" style="left:16px" src="assets/img/cards/card_cover.png"
+            alt="Cover Card">
+
+        <!-- Played Cards -->
+        @for (c of game.playedcards; track c) {
+        <img class="played-card" src="assets/img/cards/{{c}}.png" alt="Played Card">
+        }
+
+        <!-- Current Card Animation -->
+        @if (pickCardAnimation) {
+        <img (click)="takeCard()" class="pick-card" style="left:16px" src="assets/img/cards/{{currentCard}}.png"
+            alt="Cover Card">
+        }
+    </div>
+</div>
+
+<button (click)="openDialog()" mat-fab class="btn-add" aria-label="Example icon button with a delete icon">
+    <mat-icon>add</mat-icon>
+</button>
