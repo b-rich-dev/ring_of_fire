@@ -3,16 +3,18 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogClose } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-diaog-add-player',
   standalone: true,
   imports: [
-    FormsModule, 
-    MatFormFieldModule, 
-    MatInputModule, 
-    MatButtonModule
-  ],
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogClose
+],
   templateUrl: './dialog-add-player.component.html',
   styleUrl: './dialog-add-player.component.scss'
 })
@@ -28,5 +30,10 @@ export class DialogAddPlayerComponent {
   openTest() {
     // Test-Logik hier implementieren
     console.log('Test öffnen');
+  }
+
+  onNoClick(): void {
+    // Logik für "Nein"-Klick hier implementieren
+    console.log('Dialog geschlossen');
   }
 }

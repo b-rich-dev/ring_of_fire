@@ -6,7 +6,8 @@
     </mat-form-field>
   </p>
   <p>
-    <button mat-raised-button color="accent" (click)="openTest()">Enter</button>
+    <button mat-raised-button color="accent" (click)="openTest()" [mat-dialog-close]="name">Enter</button>
+    <button mat-raised-button color="accent" (click)="onNoClick()">Enough</button>
   </p>
   @if (animal()) {
     <li>
