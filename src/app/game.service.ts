@@ -16,7 +16,7 @@ export class GameService {
   initializeGame() {
     this.stack = [];
     this.playedcards = [];
-    this.players = [];
+    this.players = ['Alice', 'Bob', 'Charlie'];
     this.currentPlayer = 0;
     
     for (let i = 1; i < 14; i++) {

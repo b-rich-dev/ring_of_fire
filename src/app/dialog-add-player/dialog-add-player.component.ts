@@ -21,19 +21,4 @@ import { MatDialogClose } from "@angular/material/dialog";
 export class DialogAddPlayerComponent {
   name: string = '';
   animal = signal<string>('');
-
-  openDialog() {
-    // Dialog-Logik hier implementieren
-    console.log('Dialog öffnen');
-  }
-
-  openTest() {
-    // Test-Logik hier implementieren
-    console.log('Test öffnen');
-  }
-
-  onNoClick(): void {
-    // Logik für "Nein"-Klick hier implementieren
-    console.log('Dialog geschlossen');
-  }
 }

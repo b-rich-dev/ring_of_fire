@@ -10,6 +10,7 @@ import { GameService } from '../game.service';
 })
 export class PlayerComponent {
   @Input() name!: string;
+  @Input() playerActive: boolean = false;
 
   constructor(public gameService: GameService) {}
 

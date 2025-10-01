@@ -8,14 +8,17 @@
     height: 100vh;
     max-width: 100%;
     background-image: url('/assets/img/board.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .card-stack {
     position: relative;
     width: max-content;
+    margin-left: 200px;
 
     img {
         position: absolute;
@@ -65,4 +68,12 @@
     position: absolute;
     bottom: 32px;
     right: 32px;
+}
+
+.pin-info {
+    position: absolute;
+    bottom: 32px;
+    right: 100px;
+    left: 100px;
+    color: white;
 }
