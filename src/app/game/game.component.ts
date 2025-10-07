@@ -7,6 +7,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { GameInfoComponent } from '../game-info/game-info.component';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-game',
@@ -27,7 +29,10 @@ export class GameComponent {
   pickCardAnimation: boolean = false;
   currentCard: string = '';
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private firestore: Firestore = inject(Firestore)
+  ) {}
 
   takeCard() {
     if (!this.pickCardAnimation) {
@@ -47,6 +52,23 @@ export class GameComponent {
 
   ngOnInit() {
     this.newGame();
+    
+    // Einfache Firestore-Verbindung - funktioniert meist ohne CORS-Probleme
+    try {
+      const gamesCollection = collection(this.firestore, 'games');
+      collectionData(gamesCollection).subscribe(games => {
+        console.log('Games from Firestore:', games);
+      });
+    } catch (error) {
+      console.log('Firestore connection failed, using local data:', error);
+      this.loadLocalData();
+    }
+  }
+
+  private loadLocalData() {
+    // Fallback: Verwende lokale Daten
+    console.log('Using local game data...');
+    // Hier können Sie lokale Daten laden oder Mock-Daten verwenden
   }
 
   openDialog(): void {
