@@ -17,8 +17,8 @@
         }
 
         <!-- Current Card Animation -->
-        @if (pickCardAnimation) {
-        <img (click)="takeCard()" class="pick-card" style="left:16px" src="assets/img/cards/{{currentCard}}.png"
+        @if (game.pickCardAnimation) {
+        <img (click)="takeCard()" class="pick-card" style="left:16px" src="assets/img/cards/{{game.currentCard}}.png"
             alt="Cover Card">
         }
     </div>
@@ -28,4 +28,4 @@
     <mat-icon>add</mat-icon>
 </button>
 
-<app-game-info [card]="currentCard" class="pin-info"></app-game-info>
+<app-game-info [card]="game.currentCard" class="pin-info"></app-game-info>

@@ -4,13 +4,26 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GameService {
-  players: string[] = [];
-  stack: string[] = [];
-  playedcards: string[] = [];
-  currentPlayer: number = 0;
+  public players: string[] = [];
+  public stack: string[] = [];
+  public playedcards: string[] = [];
+  public currentPlayer: number = 0;
+  public pickCardAnimation: boolean = false;
+  public currentCard: string = '';
 
   constructor() {
     this.initializeGame();
+  }
+
+  public toJson() {
+    return {
+      players: this.players,
+      stack: this.stack,
+      playedcards: this.playedcards,
+      currentPlayer: this.currentPlayer,
+      pickCardAnimation: this.pickCardAnimation,
+      currentCard: this.currentCard
+    };
   }
 
   initializeGame() {
@@ -18,7 +31,7 @@ export class GameService {
     this.playedcards = [];
     this.players = ['Alice', 'Bob', 'Charlie'];
     this.currentPlayer = 0;
-    
+
     for (let i = 1; i < 14; i++) {
       this.stack.push('spade_' + i);
       this.stack.push('hearts_' + i);
@@ -33,7 +46,7 @@ export class GameService {
   }
 }
 
-function shuffle(array:string[]) {
+function shuffle(array: string[]) {
   let currentIndex = array.length;
 
   while (currentIndex != 0) {
